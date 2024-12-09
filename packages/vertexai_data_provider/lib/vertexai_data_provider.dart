@@ -1,0 +1,1 @@
+export 'src/vertexai_data_provider.dart';
