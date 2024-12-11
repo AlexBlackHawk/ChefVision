@@ -4,12 +4,13 @@
 *.pyc
 *.swp
 .DS_Store
-.env
+*.env
 .atom/
 .buildlog/
 .history
 .svn/
 migrate_working_dir/
+env.g.dart
 
 # IntelliJ related
 *.iml

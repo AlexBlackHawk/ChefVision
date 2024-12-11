@@ -1,4 +1,4 @@
-// import 'package:lyudashollywooda/configs/store_config.dart';
+import 'package:chefvision/configs/store_config.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 
 Future<void> configureSDK() async {

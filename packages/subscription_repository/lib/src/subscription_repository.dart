@@ -1,3 +1,5 @@
+import 'package:purchases_flutter/purchases_flutter.dart';
+
 class SubscriptionRepository {
   const SubscriptionRepository();
 
