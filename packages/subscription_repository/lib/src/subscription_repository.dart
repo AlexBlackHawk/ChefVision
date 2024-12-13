@@ -8,6 +8,17 @@ class SubscriptionRepository {
     return customerInfo;
   }
 
+  Future<String> get currentAppUserId async {
+    String appUserId = await Purchases.appUserID;
+    return appUserId;
+  }
+
+  Future<bool> get currentSubscriptionStatus async {
+    CustomerInfo customerInfo = await currentCustomerInfo;
+    bool isSubscribed = customerInfo.entitlements.active.isNotEmpty;
+    return isSubscribed;
+  }
+
   Future<CustomerInfo> logIn(String userId) async {
     LogInResult result = await Purchases.logIn(userId);
     return result.customerInfo;

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "62398597572",
+    "project_id": "chefvision-c6a4a",
+    "storage_bucket": "chefvision-c6a4a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:62398597572:android:a95641577f06b36f183c91",
+        "android_client_info": {
+          "package_name": "com.yastrubapps.chefvision"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB86Sin-xqHlyuIFvCNKn9oPcdz_IvoBKI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
