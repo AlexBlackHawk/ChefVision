@@ -21,13 +21,13 @@ Future<void> main() async {
   if (Platform.isIOS || Platform.isMacOS) {
     StoreConfig(
       store: Store.appStore,
-      apiKey: Env.googleRevenueCatApiKey,
+      apiKey: Env.appleRevenueCatApiKey,
     );
   } else if (Platform.isAndroid) {
-    // StoreConfig(
-    //   store: Store.playStore,
-    //   apiKey: Env.appleRevenueCatApiKey,
-    // );
+    StoreConfig(
+      store: Store.playStore,
+      apiKey: Env.googleRevenueCatApiKey,
+    );
   }
 
   await configureSDK();
