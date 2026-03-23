@@ -30,16 +30,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  google_mlkit_image_labeling: ^0.13.0
+  google_mlkit_image_labeling: ^0.14.2
   purchases_flutter: ^8.2.1
-  firebase_core: ^3.8.1
-  firebase_vertexai: ^1.0.4
-  flutter_bloc: ^8.1.6
-  bloc: ^8.1.4
+  firebase_core: ^4.6.0
+  firebase_vertexai: ^2.2.0
+  flutter_bloc: ^9.1.1
+  bloc: ^9.2.0
   equatable: ^2.0.7
-  camera: ^0.11.0+2
+  camera: ^0.12.0+1
   image_picker: ^1.1.2
-  google_mobile_ads: ^5.2.0
+  google_mobile_ads: ^7.0.0
   envied: ^1.0.0
   meal_repository:
     path: packages/meal_repository
@@ -62,7 +62,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^4.0.0
+  flutter_lints: ^6.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
