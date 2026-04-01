@@ -11,6 +11,7 @@
 .svn/
 migrate_working_dir/
 env.g.dart
+br_el_script.zsh
 
 # IntelliJ related
 *.iml
