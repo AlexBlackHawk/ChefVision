@@ -1,6 +1,6 @@
 import 'package:purchases_flutter/purchases_flutter.dart';
 
-class SubscriptionRepository {
+abstract class SubscriptionRepository {
   const SubscriptionRepository();
 
   Future<CustomerInfo> get currentCustomerInfo async {
