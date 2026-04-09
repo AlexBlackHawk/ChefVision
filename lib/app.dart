@@ -1,8 +1,5 @@
-import 'package:chefvision/subscription/bloc/subscription_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meal_repository/meal_repository.dart';
-import 'package:subscription_repository/subscription_repository.dart';
 
 class App extends StatefulWidget {
   const App({super.key});
