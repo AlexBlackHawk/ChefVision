@@ -1,7 +1,7 @@
 import 'package:purchases_flutter/purchases_flutter.dart';
 
-abstract class SubscriptionRepository {
-  const SubscriptionRepository();
+abstract class SubscriptionRevenueCat {
+  const SubscriptionRevenueCat();
 
   Future<CustomerInfo> get currentCustomerInfo async {
     CustomerInfo customerInfo = await Purchases.getCustomerInfo();
