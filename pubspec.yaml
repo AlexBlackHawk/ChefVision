@@ -44,6 +44,8 @@ dependencies:
   firebase_crashlytics: ^5.1.0
   firebase_remote_config: ^6.3.0
   firebase_analytics: ^12.2.0
+  get_it: ^9.2.1
+  injectable: ^2.7.1+4
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -54,6 +56,7 @@ dev_dependencies:
     sdk: flutter
   build_runner: ^2.4.13
   envied_generator: ^1.0.0
+  injectable_generator: ^2.12.1
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
