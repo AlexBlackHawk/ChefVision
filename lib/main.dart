@@ -4,7 +4,9 @@ import 'dart:ui';
 
 import 'package:chefvision/core/configs/config_sdk.dart';
 import 'package:chefvision/core/configs/store_config.dart';
+import 'package:chefvision/core/di/di.dart';
 import 'package:chefvision/core/env/env.dart';
+import 'package:chefvision/core/service_locator/locator.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
@@ -21,7 +23,8 @@ void main() {
       WidgetsFlutterBinding.ensureInitialized();
 
       await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
-      MobileAds.instance.initialize();
+      await configureDependencies(locator);
+      await MobileAds.instance.initialize();
 
       if (!kIsWeb && kDebugMode) {
         FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(false);
