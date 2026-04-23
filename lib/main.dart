@@ -7,6 +7,7 @@ import 'package:chefvision/core/configs/store_config.dart';
 import 'package:chefvision/core/di/di.dart';
 import 'package:chefvision/core/env/env.dart';
 import 'package:chefvision/core/service_locator/locator.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
@@ -25,6 +26,7 @@ void main() {
       await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
       await configureDependencies(locator);
       await MobileAds.instance.initialize();
+      await EasyLocalization.ensureInitialized();
 
       if (!kIsWeb && kDebugMode) {
         FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(false);
@@ -56,7 +58,14 @@ void main() {
 
       await configureSDK();
 
-      runApp(const App());
+      runApp(
+        EasyLocalization(
+          supportedLocales: [Locale('en'), Locale('uk')],
+          path: 'assets/translations',
+          fallbackLocale: Locale('en'),
+          child: const App(),
+        ),
+      );
     },
     (error, stackTrace) {
       if (!kIsWeb) {
