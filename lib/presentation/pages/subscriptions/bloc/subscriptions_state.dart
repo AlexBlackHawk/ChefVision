@@ -1,16 +1,16 @@
-part of 'subscription_bloc.dart';
+part of 'subscriptions_bloc.dart';
 
-enum SubscriptionPackagesLoadingStatus { initial, inProgress, success, failure, }
+enum SubscriptionsPackagesLoadingStatus { initial, inProgress, success, failure, }
 
-final class SubscriptionState extends Equatable {
-  const SubscriptionState({
+final class SubscriptionsState extends Equatable {
+  const SubscriptionsState({
     this.userId = "",
     this.customerInfo,
     this.subscriptionPackages,
     this.selectedPackage,
     this.appUserId = "",
     this.isSubscribed = false,
-    this.subscriptionPackagesLoadingStatus = SubscriptionPackagesLoadingStatus.initial,
+    this.subscriptionPackagesLoadingStatus = SubscriptionsPackagesLoadingStatus.initial,
   });
 
   final CustomerInfo? customerInfo;
@@ -19,18 +19,18 @@ final class SubscriptionState extends Equatable {
   final Package? selectedPackage;
   final String appUserId;
   final bool isSubscribed;
-  final SubscriptionPackagesLoadingStatus subscriptionPackagesLoadingStatus;
+  final SubscriptionsPackagesLoadingStatus subscriptionPackagesLoadingStatus;
 
-  SubscriptionState copyWith({
+  SubscriptionsState copyWith({
     CustomerInfo? customerInfo,
     String? userId,
     List<Package>? subscriptionPackages,
     Package? selectedPackage,
     String? appUserId,
     bool? isSubscribed,
-    SubscriptionPackagesLoadingStatus? subscriptionPackagesLoadingStatus,
+    SubscriptionsPackagesLoadingStatus? subscriptionPackagesLoadingStatus,
   }) {
-    return SubscriptionState(
+    return SubscriptionsState(
       customerInfo: customerInfo ?? this.customerInfo,
       userId: userId ?? this.userId,
       subscriptionPackages: subscriptionPackages ?? this.subscriptionPackages,
