@@ -1,7 +1,8 @@
+import 'package:chefvision/presentation/pages/home/home.dart';
 import 'package:chefvision/presentation/routing/app_router.dart';
+import 'package:chefvision/presentation/routing/enum/app_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class App extends StatelessWidget {
@@ -22,7 +23,7 @@ class AppView extends StatelessWidget {
   Widget build(BuildContext context) {
     final GoRouter appRouter = GoRouter(
       navigatorKey: _rootNavigatorKey,
-      initialLocation: splashScreenPage.path,
+      initialLocation: homePage.path,
       routes: buildAppRoutes(),
     );
 
@@ -36,7 +37,7 @@ class AppView extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      builder: (context, child) => Container(),
+      builder: (context, child) => HomePage(),
     );
   }
 }
