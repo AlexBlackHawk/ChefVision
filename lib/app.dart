@@ -3,36 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-class App extends StatefulWidget {
+class App extends StatelessWidget {
   const App({super.key});
 
   @override
-  State<App> createState() => _AppState();
-}
-
-class _AppState extends State<App> {
-  late final SubscriptionRepository _subscriptionRepository;
-
-  @override
-  void initState() {
-    _subscriptionRepository = const SubscriptionRepository();
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return MultiRepositoryProvider(
-      providers: [
-        RepositoryProvider<MealRepository>(
-          create: (context) => MealRepository(),
-        ),
-        RepositoryProvider.value(value: _subscriptionRepository),
-      ],
-      child: BlocProvider(
-        create: (context) => SubscriptionBloc(subscriptionRepository: _subscriptionRepository)..add(const SubscriptionCustomerInitialized())..add(const SubscriptionPackagesFetched()),
-        child: const AppView(),
-      ),
-    );
+    return AppView();
   }
 }
 

@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:subscription_repository/subscription_repository.dart';
 
 import 'package:purchases_flutter/purchases_flutter.dart';
 
@@ -8,10 +7,7 @@ part 'subscriptions_event.dart';
 part 'subscriptions_state.dart';
 
 class SubscriptionsBloc extends Bloc<SubscriptionsEvent, SubscriptionsState> {
-  SubscriptionsBloc({
-    required SubscriptionRepository subscriptionRepository,
-  }) : _subscriptionRepository = subscriptionRepository,
-       super(const SubscriptionsState()) {
+  SubscriptionsBloc() : super(const SubscriptionsState()) {
     on<SubscriptionUserIdChanged>(_onUserIdChanged);
     on<SubscriptionLoginSubmitted>(_onLoginSubmitted);
     on<SubscriptionLogoutPressed>(_onLogoutPressed);
@@ -20,8 +16,6 @@ class SubscriptionsBloc extends Bloc<SubscriptionsEvent, SubscriptionsState> {
     on<SubscriptionPurchasesRestored>(_onPurchasesRestored);
     on<SubscriptionCustomerInitialized>(_onCustomerInitialized);
   }
-
-  final SubscriptionRepository _subscriptionRepository;
 
   Future<void> _onCustomerInitialized(SubscriptionCustomerInitialized event, Emitter<SubscriptionsState> emit) async {
     CustomerInfo customerInfo = await _subscriptionRepository.currentCustomerInfo;
