@@ -23,17 +23,15 @@ _i174.GetIt $configureDependencies(
   String? environment,
   _i526.EnvironmentFilter? environmentFilter,
 }) {
-  final gh = _i526.GetItHelper(
-    getIt,
-    environment,
-    environmentFilter,
-  );
+  final gh = _i526.GetItHelper(getIt, environment, environmentFilter);
   final appModule = _$AppModule();
   gh.lazySingleton<_i627.FirebaseRemoteConfig>(() => appModule.remoteConfig);
   gh.lazySingleton<_i596.SubscriptionRevenueCat>(
-      () => appModule.subscriptionRevenueCat());
+    () => appModule.subscriptionRevenueCat(),
+  );
   gh.lazySingleton<_i120.RemoteConfigFirebase>(
-      () => appModule.remoteConfigFirebase(gh<_i627.FirebaseRemoteConfig>()));
+    () => appModule.remoteConfigFirebase(gh<_i627.FirebaseRemoteConfig>()),
+  );
   return getIt;
 }
 
