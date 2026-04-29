@@ -1,4 +1,5 @@
 import 'package:chefvision/presentation/routing/app_router.dart';
+import 'package:chefvision/presentation/routing/enum/app_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -45,7 +46,7 @@ class AppView extends StatelessWidget {
   Widget build(BuildContext context) {
     final GoRouter appRouter = GoRouter(
       navigatorKey: _rootNavigatorKey,
-      initialLocation: splashScreenPage.path,
+      initialLocation: homePage.path,
       routes: buildAppRoutes(),
     );
 
