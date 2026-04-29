@@ -29,9 +29,9 @@ class SubscriptionRevenueCat {
     return customerInfo;
   }
 
-  Future<CustomerInfo> purchasePackage(Package package) async {
-    CustomerInfo customerInfo = await Purchases.purchasePackage(package);
-    return customerInfo;
+  Future<CustomerInfo> purchasePackage(PurchaseParams purchaseParams) async {
+    PurchaseResult purchaseResult = await Purchases.purchase(purchaseParams);
+    return purchaseResult.customerInfo;
   }
 
   Future<List<Package>?> getAllPackages() async {
