@@ -29,7 +29,7 @@ class SubscriptionRevenueCat {
     return customerInfo;
   }
 
-  Future<CustomerInfo> purchasePackage(PurchaseParams purchaseParams) async {
+  Future<CustomerInfo> purchase(PurchaseParams purchaseParams) async {
     PurchaseResult purchaseResult = await Purchases.purchase(purchaseParams);
     return purchaseResult.customerInfo;
   }
