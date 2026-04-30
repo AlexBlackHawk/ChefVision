@@ -13,10 +13,14 @@ import 'package:chefvision/core/modules/app_module/app_module.dart' as _i418;
 import 'package:chefvision/data/firebase/remote_config_firebase.dart' as _i120;
 import 'package:chefvision/data/repositories/remote_config_repository_impl.dart'
     as _i460;
+import 'package:chefvision/data/repositories/subscription_repository_impl.dart'
+    as _i125;
 import 'package:chefvision/data/revenuecat/subscription_revenuecat.dart'
     as _i596;
 import 'package:chefvision/domain/repositories/remote_config_repository.dart'
     as _i410;
+import 'package:chefvision/domain/repositories/subscription_repository.dart'
+    as _i646;
 import 'package:firebase_remote_config/firebase_remote_config.dart' as _i627;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
@@ -35,6 +39,9 @@ _i174.GetIt $configureDependencies(
   );
   gh.lazySingleton<_i120.RemoteConfigFirebase>(
     () => appModule.remoteConfigFirebase(gh<_i627.FirebaseRemoteConfig>()),
+  );
+  gh.lazySingleton<_i646.SubscriptionRepository>(
+    () => _i125.SubscriptionRepositoryImpl(gh<_i596.SubscriptionRevenueCat>()),
   );
   gh.lazySingleton<_i410.RemoteConfigRepository>(
     () => _i460.RemoteConfigRepositoryImpl(gh<_i120.RemoteConfigFirebase>()),
