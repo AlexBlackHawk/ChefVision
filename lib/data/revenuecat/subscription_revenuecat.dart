@@ -3,18 +3,18 @@ import 'package:purchases_flutter/purchases_flutter.dart';
 class SubscriptionRevenueCat {
   const SubscriptionRevenueCat();
 
-  Future<CustomerInfo> get currentCustomerInfo async {
+  Future<CustomerInfo> getCurrentCustomerInfo() async {
     CustomerInfo customerInfo = await Purchases.getCustomerInfo();
     return customerInfo;
   }
 
-  Future<String> get currentAppUserId async {
+  Future<String> getCurrentAppUserId() async {
     String appUserId = await Purchases.appUserID;
     return appUserId;
   }
 
-  Future<bool> get currentSubscriptionStatus async {
-    CustomerInfo customerInfo = await currentCustomerInfo;
+  Future<bool> getCurrentSubscriptionStatus() async {
+    CustomerInfo customerInfo = await getCurrentCustomerInfo();
     bool isSubscribed = customerInfo.entitlements.active.isNotEmpty;
     return isSubscribed;
   }
