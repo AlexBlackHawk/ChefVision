@@ -43,4 +43,9 @@ class SubscriptionRevenueCat {
     CustomerInfo customerInfo = await Purchases.restorePurchases();
     return customerInfo;
   }
+
+  PurchaseParams convertToPurchaseParams(Package package) {
+    PurchaseParams purchaseParams = PurchaseParams.package(package);
+    return purchaseParams;
+  }
 }
