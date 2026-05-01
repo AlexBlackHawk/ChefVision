@@ -50,4 +50,9 @@ class SubscriptionRepositoryImpl implements SubscriptionRepository {
   Future<CustomerInfo> restorePurchases() async {
     return await _subscriptionRevenueCat.restorePurchases();
   }
+
+  @override
+  PurchaseParams convertToPurchaseParams({required Package package}) {
+    return _subscriptionRevenueCat.convertToPurchaseParams(package);
+  }
 }

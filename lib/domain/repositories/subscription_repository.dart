@@ -20,4 +20,8 @@ abstract interface class SubscriptionRepository {
   Future<List<Package>?> getAllPackages();
 
   Future<CustomerInfo> restorePurchases();
+
+  PurchaseParams convertToPurchaseParams({
+    required Package package,
+  });
 }
