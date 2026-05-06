@@ -10,9 +10,12 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:chefvision/core/modules/app_module/app_module.dart' as _i418;
+import 'package:chefvision/data/firebase/ai_logic_firebase.dart' as _i310;
 import 'package:chefvision/data/firebase/ml_model_downloader_firebase.dart'
     as _i426;
 import 'package:chefvision/data/firebase/remote_config_firebase.dart' as _i120;
+import 'package:chefvision/data/repositories/ai_logic_repository_impl.dart'
+    as _i1073;
 import 'package:chefvision/data/repositories/ml_model_downloader_repository_impl.dart'
     as _i1069;
 import 'package:chefvision/data/repositories/remote_config_repository_impl.dart'
@@ -21,12 +24,34 @@ import 'package:chefvision/data/repositories/subscription_repository_impl.dart'
     as _i125;
 import 'package:chefvision/data/revenuecat/subscription_revenuecat.dart'
     as _i596;
+import 'package:chefvision/domain/repositories/ai_logic_repository.dart'
+    as _i943;
 import 'package:chefvision/domain/repositories/ml_model_downloader_repository.dart'
     as _i909;
 import 'package:chefvision/domain/repositories/remote_config_repository.dart'
     as _i410;
 import 'package:chefvision/domain/repositories/subscription_repository.dart'
     as _i646;
+import 'package:chefvision/domain/usecases/ai_logic_use_cases/convert_response_to_meal_use_case.dart'
+    as _i215;
+import 'package:chefvision/domain/usecases/ai_logic_use_cases/create_text_content_use_case.dart'
+    as _i970;
+import 'package:chefvision/domain/usecases/ai_logic_use_cases/get_cached_content_token_count_use_case.dart'
+    as _i591;
+import 'package:chefvision/domain/usecases/ai_logic_use_cases/get_candidates_token_count_use_case.dart'
+    as _i208;
+import 'package:chefvision/domain/usecases/ai_logic_use_cases/get_prompt_token_count_use_case.dart'
+    as _i158;
+import 'package:chefvision/domain/usecases/ai_logic_use_cases/get_response_use_case.dart'
+    as _i360;
+import 'package:chefvision/domain/usecases/ai_logic_use_cases/get_thoughts_token_count_use_case.dart'
+    as _i757;
+import 'package:chefvision/domain/usecases/ai_logic_use_cases/get_tool_use_prompt_token_count_use_case.dart'
+    as _i887;
+import 'package:chefvision/domain/usecases/ai_logic_use_cases/get_total_token_count_use_case.dart'
+    as _i504;
+import 'package:chefvision/domain/usecases/ai_logic_use_cases/initialize_model_use_case.dart'
+    as _i862;
 import 'package:chefvision/domain/usecases/ml_model_downloader_use_cases/download_ml_model_use_case.dart'
     as _i954;
 import 'package:chefvision/domain/usecases/remote_config_use_cases/get_ai_model_name_use_case.dart'
@@ -49,6 +74,7 @@ import 'package:chefvision/domain/usecases/subscription_use_cases/purchase_use_c
     as _i300;
 import 'package:chefvision/domain/usecases/subscription_use_cases/restore_purchases_use_case.dart'
     as _i502;
+import 'package:firebase_ai/firebase_ai.dart' as _i187;
 import 'package:firebase_ml_model_downloader/firebase_ml_model_downloader.dart'
     as _i520;
 import 'package:firebase_remote_config/firebase_remote_config.dart' as _i627;
@@ -67,6 +93,7 @@ _i174.GetIt $configureDependencies(
   gh.lazySingleton<_i520.FirebaseModelDownloader>(
     () => appModule.mlModelDownloader,
   );
+  gh.lazySingleton<_i187.FirebaseAI>(() => appModule.firebaseAI);
   gh.lazySingleton<_i596.SubscriptionRevenueCat>(
     () => appModule.subscriptionRevenueCat(),
   );
@@ -81,8 +108,14 @@ _i174.GetIt $configureDependencies(
   gh.lazySingleton<_i646.SubscriptionRepository>(
     () => _i125.SubscriptionRepositoryImpl(gh<_i596.SubscriptionRevenueCat>()),
   );
+  gh.lazySingleton<_i310.AILogicFirebase>(
+    () => appModule.aiLogicFirebase(gh<_i187.FirebaseAI>()),
+  );
   gh.lazySingleton<_i410.RemoteConfigRepository>(
     () => _i460.RemoteConfigRepositoryImpl(gh<_i120.RemoteConfigFirebase>()),
+  );
+  gh.lazySingleton<_i943.AILogicRepository>(
+    () => _i1073.AILogicRepositoryImpl(gh<_i310.AILogicFirebase>()),
   );
   gh.factory<_i358.GetAllPackagesUseCase>(
     () => _i358.GetAllPackagesUseCase(gh<_i646.SubscriptionRepository>()),
@@ -121,6 +154,38 @@ _i174.GetIt $configureDependencies(
   );
   gh.factory<_i804.GetMLModelNameUseCase>(
     () => _i804.GetMLModelNameUseCase(gh<_i410.RemoteConfigRepository>()),
+  );
+  gh.factory<_i215.ConvertResponseToMealUseCase>(
+    () => _i215.ConvertResponseToMealUseCase(gh<_i943.AILogicRepository>()),
+  );
+  gh.factory<_i970.CreateTextContentUseCase>(
+    () => _i970.CreateTextContentUseCase(gh<_i943.AILogicRepository>()),
+  );
+  gh.factory<_i591.GetCachedContentTokenCountUseCase>(
+    () =>
+        _i591.GetCachedContentTokenCountUseCase(gh<_i943.AILogicRepository>()),
+  );
+  gh.factory<_i208.GetCandidatesTokenCountUseCase>(
+    () => _i208.GetCandidatesTokenCountUseCase(gh<_i943.AILogicRepository>()),
+  );
+  gh.factory<_i158.GetPromptTokenCountUseCase>(
+    () => _i158.GetPromptTokenCountUseCase(gh<_i943.AILogicRepository>()),
+  );
+  gh.factory<_i360.GetResponseUseCase>(
+    () => _i360.GetResponseUseCase(gh<_i943.AILogicRepository>()),
+  );
+  gh.factory<_i757.GetThoughtsTokenCountUseCase>(
+    () => _i757.GetThoughtsTokenCountUseCase(gh<_i943.AILogicRepository>()),
+  );
+  gh.factory<_i887.GetToolUsePromptTokenCountUseCase>(
+    () =>
+        _i887.GetToolUsePromptTokenCountUseCase(gh<_i943.AILogicRepository>()),
+  );
+  gh.factory<_i504.GetTotalTokenCountUseCase>(
+    () => _i504.GetTotalTokenCountUseCase(gh<_i943.AILogicRepository>()),
+  );
+  gh.factory<_i862.InitializeModelUseCase>(
+    () => _i862.InitializeModelUseCase(gh<_i943.AILogicRepository>()),
   );
   gh.factory<_i954.DownloadMLModelUseCase>(
     () => _i954.DownloadMLModelUseCase(gh<_i909.MLModelDownloaderRepository>()),
