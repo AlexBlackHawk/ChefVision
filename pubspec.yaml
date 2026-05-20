@@ -34,6 +34,8 @@ dependencies:
   cupertino_icons: ^1.0.8
   firebase_ml_model_downloader: ^0.4.2
   flutter_launcher_icons: ^0.14.4
+  flutter_gen: ^5.14.1
+  flutter_svg: ^2.3.0
 
 dev_dependencies:
   flutter_test:
@@ -42,6 +44,7 @@ dev_dependencies:
   envied_generator: ^1.0.0
   injectable_generator: ^2.12.1
   json_serializable: ^6.13.1
+  flutter_gen_runner: ^5.14.1
 
   flutter_lints: ^6.0.0
 
