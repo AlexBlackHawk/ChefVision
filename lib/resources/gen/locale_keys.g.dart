@@ -37,8 +37,7 @@ abstract class  LocaleKeys {
   static const loadingSubscription = 'loadingSubscription';
   static const manageSubscription = 'manageSubscription';
   static const noActiveSubscriptionStatus = 'noActiveSubscriptionStatus';
-  static const noActiveSubscriptionYet = 'noActiveSubscriptionYet';
-  static const subscribeToRemoveAdsMessage = 'subscribeToRemoveAdsMessage';
+  static const noActiveSubscriptionSubscribeToRemoveAds = 'noActiveSubscriptionSubscribeToRemoveAds';
   static const viewSubscriptionPlans = 'viewSubscriptionPlans';
   static const activeStatus = 'activeStatus';
   static const needHelp = 'needHelp';
@@ -51,5 +50,23 @@ abstract class  LocaleKeys {
   static const active = 'active';
   static const placeProductsTapToCapture = 'placeProductsTapToCapture';
   static const makeSureProductsVisible = 'makeSureProductsVisible';
+  static const failedToLoadSubscription = 'failedToLoadSubscription';
+  static const unableToFetchSubscriptionStatus = 'unableToFetchSubscriptionStatus';
+  static const loadingSubscriptionStatus = 'loadingSubscriptionStatus';
+  static const failedToLoadPackages = 'failedToLoadPackages';
+  static const failedToLoadSubscriptionPackages = 'failedToLoadSubscriptionPackages';
+  static const tryAgain = 'tryAgain';
+  static const failedToLoadSubscriptionInformation = 'failedToLoadSubscriptionInformation';
+  static const initializingCamera = 'initializingCamera';
+  static const cameraError = 'cameraError';
+  static const unableToAccessCamera = 'unableToAccessCamera';
+  static const cameraAccessDenied = 'cameraAccessDenied';
+  static const cameraPermissionRequired = 'cameraPermissionRequired';
+  static const detectionFailed = 'detectionFailed';
+  static const failedToDetectProducts = 'failedToDetectProducts';
+  static const noProductsDetected = 'noProductsDetected';
+  static const couldNotDetectProducts = 'couldNotDetectProducts';
+  static const recipeGenerationFailed = 'recipeGenerationFailed';
+  static const failedToGenerateRecipe = 'failedToGenerateRecipe';
 
 }
