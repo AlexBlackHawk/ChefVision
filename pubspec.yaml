@@ -60,6 +60,12 @@ flutter:
     - assets/logo/
     - assets/translations/
 
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter/Inter-Italic.ttf
+        - asset: assets/fonts/Inter/Inter-Regular.ttf
+
 
 flutter_gen:
   output: lib/resources/gen
