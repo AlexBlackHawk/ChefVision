@@ -35,7 +35,7 @@
   "noActiveSubscriptionStatus": "Немає активної підписки",
   "noActiveSubscriptionSubscribeToRemoveAds": "У вас ще немає активної підписки. Підпишіться, щоб видалити рекламу.",
   "viewSubscriptionPlans": "Переглянути плани підписки",
-  "activeStatus": "Активно: {}",
+  "activeStatus": "Активна: {}",
   "needHelp": "Потрібна допомога? ",
   "visitManagementUrlDescription": "Перейдіть за вказаною вище посиланням для керування, щоб змінити або скасувати підписку.",
   "managementUrl": "URL для керування",
@@ -63,5 +63,6 @@
   "noProductsDetected": "Продукти не знайдено",
   "couldNotDetectProducts": "Ми не змогли розпізнати жодного продукту. Ви можете додати їх вручну.",
   "recipeGenerationFailed": "Помилка при генерації рецепта",
-  "failedToGenerateRecipe": "Не вдалося згенерувати рецепт. Будь ласка, спробуйте ще раз."
+  "failedToGenerateRecipe": "Не вдалося згенерувати рецепт. Будь ласка, спробуйте ще раз.",
+  "languageName": "Українська"
 }

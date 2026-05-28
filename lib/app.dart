@@ -1,3 +1,5 @@
+import 'package:chefvision/core/theme/theme.dart';
+import 'package:chefvision/core/utils/design_scaler.dart';
 import 'package:chefvision/presentation/pages/home/home.dart';
 import 'package:chefvision/presentation/routing/app_router.dart';
 import 'package:chefvision/presentation/routing/enum/app_page.dart';
@@ -27,6 +29,8 @@ class AppView extends StatelessWidget {
       routes: buildAppRoutes(),
     );
 
+    DesignScaler.init(context);
+
     return MaterialApp.router(
       routerConfig: appRouter,
       debugShowCheckedModeBanner: false,
@@ -34,9 +38,7 @@ class AppView extends StatelessWidget {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       title: 'ChefVision',
-      theme: ThemeData(
-        useMaterial3: true,
-      ),
+      theme: theme,
       builder: (context, child) => HomePage(),
     );
   }
