@@ -68,5 +68,6 @@ abstract class  LocaleKeys {
   static const couldNotDetectProducts = 'couldNotDetectProducts';
   static const recipeGenerationFailed = 'recipeGenerationFailed';
   static const failedToGenerateRecipe = 'failedToGenerateRecipe';
+  static const languageName = 'languageName';
 
 }
