@@ -1,8 +1,6 @@
-import 'package:chefvision/core/constants/app_colors.dart';
 import 'package:chefvision/core/utils/design_scaler.dart';
 import 'package:chefvision/core/utils/extensions/build_context_utils.dart';
 import 'package:chefvision/resources/gen/assets.gen.dart';
-import 'package:chefvision/resources/gen/fonts.gen.dart';
 import 'package:flutter/material.dart';
 
 class AppBranding extends StatelessWidget {
@@ -27,13 +25,6 @@ class AppBranding extends StatelessWidget {
         ),
         Text(
           'ChefVision',
-          // style: TextStyle(
-          //   color: AppColors.gray900,
-          //   fontFamily: FontFamily.inter,
-          //   // fontSize: DesignScaler.sp(30),
-          //   fontSize: 30,
-          //   fontWeight: FontWeight.w700,
-          // ),
           style: context.styles.displayLarge,
         ),
       ],
