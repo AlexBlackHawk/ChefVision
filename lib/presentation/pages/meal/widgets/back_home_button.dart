@@ -9,8 +9,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class OpenCameraButton extends StatelessWidget {
-  const OpenCameraButton({super.key});
+class BackHomeButton extends StatelessWidget {
+  const BackHomeButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,15 +34,15 @@ class OpenCameraButton extends StatelessWidget {
         ],
       ),
       child: ElevatedButton.icon(
-        onPressed: () => context.push(mealPage.path),
+        onPressed: () => context.go(homePage.path),
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.transparent,
-          shadowColor: Colors.transparent,
-          padding: EdgeInsets.symmetric(
-            vertical: DesignScaler.h(24),
-          )
+            backgroundColor: Colors.transparent,
+            shadowColor: Colors.transparent,
+            padding: EdgeInsets.symmetric(
+              vertical: DesignScaler.h(24),
+            )
         ),
-        icon: Assets.icons.camera.svg(
+        icon: Assets.icons.home.svg(
           height: DesignScaler.h(28),
           width: DesignScaler.w(28),
           colorFilter: const ColorFilter.mode(
@@ -51,7 +51,7 @@ class OpenCameraButton extends StatelessWidget {
           ),
         ),
         label: Text(
-          LocaleKeys.openCamera.tr(),
+          LocaleKeys.backToHome.tr(),
           style: context.styles.displayMedium?.copyWith(
             color: AppColors.white,
           ),

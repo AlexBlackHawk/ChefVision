@@ -1,10 +1,10 @@
 import 'package:chefvision/core/theme/theme.dart';
 import 'package:chefvision/core/utils/design_scaler.dart';
-import 'package:chefvision/presentation/pages/home/home.dart';
 import 'package:chefvision/presentation/routing/app_router.dart';
 import 'package:chefvision/presentation/routing/enum/app_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 
 class App extends StatelessWidget {
@@ -39,7 +39,12 @@ class AppView extends StatelessWidget {
       locale: context.locale,
       title: 'ChefVision',
       theme: theme,
-      builder: (context, child) => HomePage(),
+      builder: (context, child) => AnnotatedRegion<SystemUiOverlayStyle>(
+        value: const SystemUiOverlayStyle(
+          statusBarColor: Colors.transparent,
+        ),
+        child: child!,
+      ),
     );
   }
 }
