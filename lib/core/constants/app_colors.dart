@@ -50,4 +50,6 @@ class AppColors {
   static const white60 = Color(0x99FFFFFF);
   static const black50 = Color(0x800A0A0A);
   static const black10 = Color(0x1A000000);
+  static const black60 = Color(0x99000000);
+  static const black0 = Color(0x00000000);
 }

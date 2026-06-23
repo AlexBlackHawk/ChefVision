@@ -29,4 +29,13 @@ class AppGradients {
     begin: Alignment.centerLeft,
     end: Alignment.centerRight,
   );
+
+  static const LinearGradient black60Black0 = LinearGradient(
+    colors: [
+      AppColors.black60,
+      AppColors.black0,
+    ],
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+  );
 }
