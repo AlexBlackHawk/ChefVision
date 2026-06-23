@@ -20,7 +20,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final SubscriptionStatus status = SubscriptionStatus.notActive;
+  final SubscriptionStatus status = SubscriptionStatus.active;
 
   @override
   Widget build(BuildContext context) {
