@@ -2,15 +2,13 @@ import 'package:chefvision/core/constants/app_colors.dart';
 import 'package:chefvision/core/theme/app_gradients.dart';
 import 'package:chefvision/core/utils/design_scaler.dart';
 import 'package:chefvision/core/utils/extensions/build_context_utils.dart';
-import 'package:chefvision/presentation/routing/enum/app_page.dart';
 import 'package:chefvision/resources/gen/assets.gen.dart';
 import 'package:chefvision/resources/gen/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
-class OpenCameraButton extends StatelessWidget {
-  const OpenCameraButton({super.key});
+class IconTryAgainButton extends StatelessWidget {
+  const IconTryAgainButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,25 +32,25 @@ class OpenCameraButton extends StatelessWidget {
         ],
       ),
       child: ElevatedButton.icon(
-        onPressed: () => context.push(cameraPage.path),
+        onPressed: () {},
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.transparent,
-          shadowColor: Colors.transparent,
-          padding: EdgeInsets.symmetric(
-            vertical: DesignScaler.h(24),
-          )
+            backgroundColor: Colors.transparent,
+            shadowColor: Colors.transparent,
+            padding: EdgeInsets.symmetric(
+              vertical: DesignScaler.h(12),
+            ),
         ),
-        icon: Assets.icons.camera.svg(
-          height: DesignScaler.h(28),
-          width: DesignScaler.w(28),
+        icon: Assets.icons.retry.svg(
+          height: DesignScaler.h(20),
+          width: DesignScaler.w(20),
           colorFilter: const ColorFilter.mode(
             AppColors.white,
             BlendMode.srcIn,
           ),
         ),
         label: Text(
-          LocaleKeys.openCamera.tr(),
-          style: context.styles.displayMedium?.copyWith(
+          LocaleKeys.tryAgain.tr(),
+          style: context.styles.titleSmall?.copyWith(
             color: AppColors.white,
           ),
         ),
