@@ -20,4 +20,13 @@ class AppGradients {
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
   );
+
+  static const LinearGradient orangeRed100 = LinearGradient(
+    colors: [
+      AppColors.orange100,
+      AppColors.red100,
+    ],
+    begin: Alignment.centerLeft,
+    end: Alignment.centerRight,
+  );
 }

@@ -19,7 +19,7 @@ dependencies:
   equatable: ^2.0.8
   camera: ^0.12.0+1
   image_picker: ^1.1.2
-  google_mobile_ads: ^7.0.0
+  google_mobile_ads: ^9.0.0
   envied: ^1.0.0
   firebase_crashlytics: ^5.1.0
   firebase_remote_config: ^6.3.0
@@ -36,6 +36,7 @@ dependencies:
   flutter_launcher_icons: ^0.14.4
   flutter_gen: ^5.14.1
   flutter_svg: ^2.3.0
+  collection: ^1.19.1
 
 dev_dependencies:
   flutter_test:
