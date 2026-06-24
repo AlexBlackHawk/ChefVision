@@ -4,6 +4,7 @@ import 'package:chefvision/core/utils/extensions/build_context_utils.dart';
 import 'package:chefvision/presentation/pages/subscription_managing/widgets/subscription_data_item.dart';
 import 'package:chefvision/resources/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SubscriptionInformation extends StatelessWidget {
   const SubscriptionInformation({super.key});
@@ -82,12 +83,19 @@ class SubscriptionInformation extends StatelessWidget {
             iconColor: AppColors.orange600,
             containerColor: AppColors.orange100,
             name: "Management URL",
-            value: "https://billing.example.com/manage/abc123def456",
+            value: "https://www.google.com",
             valueStyle: context.styles.headlineSmall?.copyWith(
               color: AppColors.orange600,
               decoration: TextDecoration.underline,
             ),
             nameValueSpacing: DesignScaler.h(8),
+            onValueTap: () async {
+              final Uri url = Uri.parse('https://www.google.com');
+
+              if (!await launchUrl(url)) {
+                throw Exception('Could not launch $url');
+              }
+            },
           ),
         ],
       ),

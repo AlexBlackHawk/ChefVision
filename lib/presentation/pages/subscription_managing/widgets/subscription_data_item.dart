@@ -5,7 +5,7 @@ import 'package:chefvision/resources/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
 class SubscriptionDataItem extends StatelessWidget {
-  const SubscriptionDataItem({super.key, required this.icon, required this.iconColor, required this.containerColor, required this.name, required this.value, required this.valueStyle, required this.nameValueSpacing});
+  const SubscriptionDataItem({super.key, required this.icon, required this.iconColor, required this.containerColor, required this.name, required this.value, required this.valueStyle, required this.nameValueSpacing, this.onValueTap});
 
   final SvgGenImage icon;
   final Color iconColor;
@@ -14,6 +14,7 @@ class SubscriptionDataItem extends StatelessWidget {
   final String value;
   final TextStyle? valueStyle;
   final double nameValueSpacing;
+  final VoidCallback? onValueTap;
 
   @override
   Widget build(BuildContext context) {
@@ -38,23 +39,26 @@ class SubscriptionDataItem extends StatelessWidget {
             ),
           ),
         ),
-        Flexible(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            spacing: nameValueSpacing,
-            children: [
-              Text(
-                name,
-                style: context.styles.headlineMedium?.copyWith(
-                  color: AppColors.gray600,
+        GestureDetector(
+          onTap: onValueTap,
+          child: Flexible(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              spacing: nameValueSpacing,
+              children: [
+                Text(
+                  name,
+                  style: context.styles.headlineMedium?.copyWith(
+                    color: AppColors.gray600,
+                  ),
                 ),
-              ),
-              Text(
-                value,
-                style: valueStyle,
-              ),
-            ],
+                Text(
+                  value,
+                  style: valueStyle,
+                ),
+              ],
+            ),
           ),
         )
       ],
