@@ -20,7 +20,7 @@ class SubscriptionManagingPage extends StatefulWidget {
 
 class _SubscriptionManagingPageState extends State<SubscriptionManagingPage> {
 
-  final GettingSubscriptionInformationStatus status = GettingSubscriptionInformationStatus.loading;
+  final GettingSubscriptionInformationStatus status = GettingSubscriptionInformationStatus.loaded;
 
   @override
   Widget build(BuildContext context) {
