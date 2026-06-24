@@ -122,6 +122,7 @@ class SubscriptionOptionItem extends StatelessWidget {
             ListView.separated(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
+              padding: EdgeInsets.zero,
               itemCount: advantages.length,
               separatorBuilder: (context, index) => SizedBox(
                 height: DesignScaler.h(8),
