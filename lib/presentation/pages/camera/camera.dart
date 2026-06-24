@@ -16,7 +16,7 @@ class CameraPage extends StatefulWidget {
 
 class _CameraPageState extends State<CameraPage> {
 
-  final OpeningCameraStatus openingCameraStatus = OpeningCameraStatus.accessDenied;
+  final OpeningCameraStatus openingCameraStatus = OpeningCameraStatus.opened;
 
   @override
   Widget build(BuildContext context) {

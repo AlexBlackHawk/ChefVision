@@ -64,5 +64,6 @@
   "couldNotDetectProducts": "Ми не змогли розпізнати жодного продукту. Ви можете додати їх вручну.",
   "recipeGenerationFailed": "Помилка при генерації рецепта",
   "failedToGenerateRecipe": "Не вдалося згенерувати рецепт. Будь ласка, спробуйте ще раз.",
-  "languageName": "Українська"
+  "languageName": "Українська",
+  "addProductManually": "Додати продукт вручну"
 }

@@ -64,5 +64,6 @@
   "couldNotDetectProducts": "We couldn't detect any products. You can add them manually.",
   "recipeGenerationFailed": "Recipe Generation Failed",
   "failedToGenerateRecipe": "Failed to generate recipe. Please try again.",
-  "languageName": "English"
+  "languageName": "English",
+  "addProductManually": "Add Product Manually"
 }
