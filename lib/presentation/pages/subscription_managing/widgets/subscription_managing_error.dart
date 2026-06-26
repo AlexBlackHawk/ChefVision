@@ -11,7 +11,10 @@ class SubscriptionManagingError extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Padding(
+      padding: EdgeInsetsGeometry.only(
+        top: DesignScaler.h(106),
+      ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [

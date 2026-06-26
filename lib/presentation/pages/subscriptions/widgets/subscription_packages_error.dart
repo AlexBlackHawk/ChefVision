@@ -11,66 +11,71 @@ class SubscriptionPackagesError extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          padding: EdgeInsets.symmetric(
-            vertical: DesignScaler.h(16),
-            horizontal: DesignScaler.w(16),
-          ),
-          decoration: BoxDecoration(
-            color: AppColors.red100,
-            shape: BoxShape.circle,
-          ),
-          child: Assets.icons.error.svg(
-            height: DesignScaler.h(32),
-            width: DesignScaler.w(32),
-            colorFilter: const ColorFilter.mode(
-              AppColors.red600,
-              BlendMode.srcIn,
-            ),
-          ),
-        ),
-        SizedBox(
-          height: DesignScaler.h(15.6),
-        ),
-        Text(
-          LocaleKeys.failedToLoadPackages.tr(),
-          style: context.styles.titleMedium?.copyWith(
-            color: AppColors.gray900,
-          ),
-        ),
-        SizedBox(
-          height: DesignScaler.h(7.5),
-        ),
-        Text(
-          LocaleKeys.failedToLoadPackages.tr(),
-          style: context.styles.headlineLarge,
-        ),
-        SizedBox(
-          height: DesignScaler.h(24.7),
-        ),
-        ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
+    return Padding(
+      padding: EdgeInsetsGeometry.only(
+        top: DesignScaler.h(114),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
             padding: EdgeInsets.symmetric(
-              vertical: DesignScaler.h(12.7),
-              horizontal: DesignScaler.w(24),
+              vertical: DesignScaler.h(16),
+              horizontal: DesignScaler.w(16),
             ),
-            backgroundColor: AppColors.orange500,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(DesignScaler.w(14)),
+            decoration: BoxDecoration(
+              color: AppColors.red100,
+              shape: BoxShape.circle,
+            ),
+            child: Assets.icons.error.svg(
+              height: DesignScaler.h(32),
+              width: DesignScaler.w(32),
+              colorFilter: const ColorFilter.mode(
+                AppColors.red600,
+                BlendMode.srcIn,
+              ),
             ),
           ),
-          child: Text(
-            LocaleKeys.tryAgain.tr(),
-            style: context.styles.displaySmall?.copyWith(
-              color: AppColors.white,
+          SizedBox(
+            height: DesignScaler.h(15.6),
+          ),
+          Text(
+            LocaleKeys.failedToLoadPackages.tr(),
+            style: context.styles.titleMedium?.copyWith(
+              color: AppColors.gray900,
             ),
           ),
-        ),
-      ],
+          SizedBox(
+            height: DesignScaler.h(7.5),
+          ),
+          Text(
+            LocaleKeys.failedToLoadPackages.tr(),
+            style: context.styles.headlineLarge,
+          ),
+          SizedBox(
+            height: DesignScaler.h(24.7),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              padding: EdgeInsets.symmetric(
+                vertical: DesignScaler.h(12.7),
+                horizontal: DesignScaler.w(24),
+              ),
+              backgroundColor: AppColors.orange500,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(DesignScaler.w(14)),
+              ),
+            ),
+            child: Text(
+              LocaleKeys.tryAgain.tr(),
+              style: context.styles.displaySmall?.copyWith(
+                color: AppColors.white,
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
