@@ -10,7 +10,10 @@ class SubscriptionPackagesLoading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Padding(
+      padding: EdgeInsetsGeometry.only(
+        top: DesignScaler.h(180),
+      ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         spacing: DesignScaler.h(14.6),

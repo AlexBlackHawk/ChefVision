@@ -13,7 +13,10 @@ class NoProductsDetectedContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Padding(
+      padding: EdgeInsetsGeometry.only(
+        top: DesignScaler.h(72),
+      ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -27,8 +30,8 @@ class NoProductsDetectedContent extends StatelessWidget {
               shape: BoxShape.circle,
             ),
             child: Assets.icons.emptyBox.svg(
-              height: DesignScaler.h(32),
-              width: DesignScaler.w(32),
+              height: DesignScaler.h(48),
+              width: DesignScaler.w(48),
               colorFilter: const ColorFilter.mode(
                 AppColors.gray400,
                 BlendMode.srcIn,

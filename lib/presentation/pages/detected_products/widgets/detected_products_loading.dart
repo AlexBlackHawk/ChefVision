@@ -11,28 +11,33 @@ class DetectedProductsLoading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        spacing: DesignScaler.h(14.6),
-        children: [
-          CircularProgressIndicator(
-            constraints: BoxConstraints(
-              minWidth: DesignScaler.w(36),
-              minHeight: DesignScaler.w(36),
+      child: Padding(
+        padding: EdgeInsetsGeometry.only(
+          top: DesignScaler.h(171),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          spacing: DesignScaler.h(14.6),
+          children: [
+            CircularProgressIndicator(
+              constraints: BoxConstraints(
+                minWidth: DesignScaler.w(36),
+                minHeight: DesignScaler.w(36),
+              ),
+              strokeCap: StrokeCap.round,
+              padding: EdgeInsets.symmetric(
+                vertical: DesignScaler.w(6),
+                horizontal: DesignScaler.w(6),
+              ),
+              color: AppColors.orange500,
+              strokeWidth: DesignScaler.w(4),
             ),
-            strokeCap: StrokeCap.round,
-            padding: EdgeInsets.symmetric(
-              vertical: DesignScaler.w(6),
-              horizontal: DesignScaler.w(6),
+            Text(
+              LocaleKeys.detectingProducts.tr(),
+              style: context.styles.headlineLarge,
             ),
-            color: AppColors.orange500,
-            strokeWidth: DesignScaler.w(4),
-          ),
-          Text(
-            LocaleKeys.detectingProducts.tr(),
-            style: context.styles.headlineLarge,
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
