@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:chefvision/core/constants/app_colors.dart';
 import 'package:chefvision/core/utils/design_scaler.dart';
 import 'package:chefvision/core/utils/extensions/build_context_utils.dart';
@@ -8,13 +9,17 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class CameraScreenContent extends StatelessWidget {
-  const CameraScreenContent({super.key});
+  const CameraScreenContent({super.key, required this.controller});
+
+  final CameraController controller;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CameraSection(),
+        CameraSection(
+          controller: controller,
+        ),
         Padding(
           padding: EdgeInsetsGeometry.symmetric(
             vertical: DesignScaler.h(32),
