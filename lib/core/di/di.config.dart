@@ -16,6 +16,8 @@ import 'package:chefvision/data/firebase/ml_model_downloader_firebase.dart'
 import 'package:chefvision/data/firebase/remote_config_firebase.dart' as _i120;
 import 'package:chefvision/data/repositories/ai_logic_repository_impl.dart'
     as _i1073;
+import 'package:chefvision/data/repositories/detecting_products_repository_impl.dart'
+    as _i682;
 import 'package:chefvision/data/repositories/ml_model_downloader_repository_impl.dart'
     as _i1069;
 import 'package:chefvision/data/repositories/remote_config_repository_impl.dart'
@@ -24,8 +26,11 @@ import 'package:chefvision/data/repositories/subscription_repository_impl.dart'
     as _i125;
 import 'package:chefvision/data/revenuecat/subscription_revenuecat.dart'
     as _i596;
+import 'package:chefvision/data/tflite/detecting_products_tflite.dart' as _i508;
 import 'package:chefvision/domain/repositories/ai_logic_repository.dart'
     as _i943;
+import 'package:chefvision/domain/repositories/detecting_products_repository.dart'
+    as _i1029;
 import 'package:chefvision/domain/repositories/ml_model_downloader_repository.dart'
     as _i909;
 import 'package:chefvision/domain/repositories/remote_config_repository.dart'
@@ -52,6 +57,12 @@ import 'package:chefvision/domain/usecases/ai_logic_use_cases/get_total_token_co
     as _i504;
 import 'package:chefvision/domain/usecases/ai_logic_use_cases/initialize_model_use_case.dart'
     as _i862;
+import 'package:chefvision/domain/usecases/detecting_products_use_cases/close_interpreter_use_case.dart'
+    as _i328;
+import 'package:chefvision/domain/usecases/detecting_products_use_cases/create_interpreter_use_case.dart'
+    as _i659;
+import 'package:chefvision/domain/usecases/detecting_products_use_cases/get_detected_products_use_case.dart'
+    as _i319;
 import 'package:chefvision/domain/usecases/ml_model_downloader_use_cases/download_ml_model_use_case.dart'
     as _i954;
 import 'package:chefvision/domain/usecases/remote_config_use_cases/get_ai_model_name_use_case.dart'
@@ -97,6 +108,9 @@ _i174.GetIt $configureDependencies(
   gh.lazySingleton<_i596.SubscriptionRevenueCat>(
     () => appModule.subscriptionRevenueCat(),
   );
+  gh.lazySingleton<_i508.DetectingProductsTFLite>(
+    () => appModule.detectingProductsTFLite(),
+  );
   gh.lazySingleton<_i426.MLModelDownloaderFirebase>(
     () => appModule.mlModelDownloaderFirebase(
       gh<_i520.FirebaseModelDownloader>(),
@@ -113,6 +127,11 @@ _i174.GetIt $configureDependencies(
   );
   gh.lazySingleton<_i410.RemoteConfigRepository>(
     () => _i460.RemoteConfigRepositoryImpl(gh<_i120.RemoteConfigFirebase>()),
+  );
+  gh.lazySingleton<_i1029.DetectingProductsRepository>(
+    () => _i682.DetectingProductsRepositoryImpl(
+      gh<_i508.DetectingProductsTFLite>(),
+    ),
   );
   gh.lazySingleton<_i943.AILogicRepository>(
     () => _i1073.AILogicRepositoryImpl(gh<_i310.AILogicFirebase>()),
@@ -154,6 +173,20 @@ _i174.GetIt $configureDependencies(
   );
   gh.factory<_i804.GetMLModelNameUseCase>(
     () => _i804.GetMLModelNameUseCase(gh<_i410.RemoteConfigRepository>()),
+  );
+  gh.factory<_i328.CloseInterpreterUseCase>(
+    () =>
+        _i328.CloseInterpreterUseCase(gh<_i1029.DetectingProductsRepository>()),
+  );
+  gh.factory<_i659.CreateInterpreterUseCase>(
+    () => _i659.CreateInterpreterUseCase(
+      gh<_i1029.DetectingProductsRepository>(),
+    ),
+  );
+  gh.factory<_i319.GetDetectedProductsUseCase>(
+    () => _i319.GetDetectedProductsUseCase(
+      gh<_i1029.DetectingProductsRepository>(),
+    ),
   );
   gh.factory<_i215.ConvertResponseToMealUseCase>(
     () => _i215.ConvertResponseToMealUseCase(gh<_i943.AILogicRepository>()),
