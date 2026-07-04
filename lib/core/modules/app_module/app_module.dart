@@ -2,6 +2,7 @@ import 'package:chefvision/data/firebase/ai_logic_firebase.dart';
 import 'package:chefvision/data/firebase/ml_model_downloader_firebase.dart';
 import 'package:chefvision/data/firebase/remote_config_firebase.dart';
 import 'package:chefvision/data/revenuecat/subscription_revenuecat.dart';
+import 'package:chefvision/data/tflite/detecting_products_tflite.dart';
 import 'package:firebase_ml_model_downloader/firebase_ml_model_downloader.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:firebase_ai/firebase_ai.dart';
@@ -29,4 +30,7 @@ abstract class AppModule {
 
   @lazySingleton
   AILogicFirebase aiLogicFirebase(FirebaseAI firebaseAI) => AILogicFirebase(firebaseAI);
+
+  @lazySingleton
+  DetectingProductsTFLite detectingProductsTFLite() => DetectingProductsTFLite();
 }
