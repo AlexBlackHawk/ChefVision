@@ -9,6 +9,7 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+
 import 'package:chefvision/core/modules/app_module/app_module.dart' as _i418;
 import 'package:chefvision/data/firebase/ai_logic_firebase.dart' as _i310;
 import 'package:chefvision/data/firebase/ml_model_downloader_firebase.dart'

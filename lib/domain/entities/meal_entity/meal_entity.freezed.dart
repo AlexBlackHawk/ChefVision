@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'meal_entity.dart';
@@ -9,6 +9,7 @@ part of 'meal_entity.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -28,16 +29,21 @@ $MealEntityCopyWith<MealEntity> get copyWith => _$MealEntityCopyWithImpl<MealEnt
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MealEntity&&(identical(other.name, name) || other.name == name)&&(identical(other.photo, photo) || other.photo == photo)&&const DeepCollectionEquality().equals(other.ingredients, ingredients)&&const DeepCollectionEquality().equals(other.instructions, instructions)&&(identical(other.calories, calories) || other.calories == calories)&&(identical(other.cookingTime, cookingTime) || other.cookingTime == cookingTime));
+  final _this = this as MealEntity;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MealEntity&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.photo, _this.photo) || other.photo == _this.photo)&&const DeepCollectionEquality().equals(other.ingredients, _this.ingredients)&&const DeepCollectionEquality().equals(other.instructions, _this.instructions)&&(identical(other.calories, _this.calories) || other.calories == _this.calories)&&(identical(other.cookingTime, _this.cookingTime) || other.cookingTime == _this.cookingTime));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,photo,const DeepCollectionEquality().hash(ingredients),const DeepCollectionEquality().hash(instructions),calories,cookingTime);
+int get hashCode {
+  final _this = this as MealEntity;
+  return Object.hash(runtimeType,_this.name,_this.photo,const DeepCollectionEquality().hash(_this.ingredients),const DeepCollectionEquality().hash(_this.instructions),_this.calories,_this.cookingTime);
+}
 
 @override
 String toString() {
-  return 'MealEntity(name: $name, photo: $photo, ingredients: $ingredients, instructions: $instructions, calories: $calories, cookingTime: $cookingTime)';
+  final _this = this as MealEntity;
+  return 'MealEntity(name: ${_this.name}, photo: ${_this.photo}, ingredients: ${_this.ingredients}, instructions: ${_this.instructions}, calories: ${_this.calories}, cookingTime: ${_this.cookingTime})';
 }
 
 
@@ -66,7 +72,7 @@ class _$MealEntityCopyWithImpl<$Res>
 /// Create a copy of MealEntity
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? photo = null,Object? ingredients = null,Object? instructions = null,Object? calories = null,Object? cookingTime = null,}) {
-  return _then(_self.copyWith(
+  return _then(MealEntity(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,photo: null == photo ? _self.photo : photo // ignore: cast_nullable_to_non_nullable
 as String,ingredients: null == ingredients ? _self.ingredients : ingredients // ignore: cast_nullable_to_non_nullable
@@ -214,7 +220,7 @@ return $default(_that.name,_that.photo,_that.ingredients,_that.instructions,_tha
 @JsonSerializable()
 
 class _MealEntity implements MealEntity {
-  const _MealEntity({required this.name, required this.photo, required final  List<String> ingredients, required final  List<String> instructions, required this.calories, required this.cookingTime}): _ingredients = ingredients,_instructions = instructions;
+  const _MealEntity({required this.name, required this.photo, required  List<String> ingredients, required  List<String> instructions, required this.calories, required this.cookingTime}): _ingredients = ingredients,_instructions = instructions;
   factory _MealEntity.fromJson(Map<String, dynamic> json) => _$MealEntityFromJson(json);
 
 @override final  String name;
@@ -249,16 +255,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MealEntity&&(identical(other.name, name) || other.name == name)&&(identical(other.photo, photo) || other.photo == photo)&&const DeepCollectionEquality().equals(other._ingredients, _ingredients)&&const DeepCollectionEquality().equals(other._instructions, _instructions)&&(identical(other.calories, calories) || other.calories == calories)&&(identical(other.cookingTime, cookingTime) || other.cookingTime == cookingTime));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _MealEntity&&(identical(other.name, name) || other.name == name)&&(identical(other.photo, photo) || other.photo == photo)&&const DeepCollectionEquality().equals(other.ingredients, _ingredients)&&const DeepCollectionEquality().equals(other.instructions, _instructions)&&(identical(other.calories, calories) || other.calories == calories)&&(identical(other.cookingTime, cookingTime) || other.cookingTime == cookingTime));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,photo,const DeepCollectionEquality().hash(_ingredients),const DeepCollectionEquality().hash(_instructions),calories,cookingTime);
+int get hashCode {
+    return Object.hash(runtimeType,name,photo,const DeepCollectionEquality().hash(_ingredients),const DeepCollectionEquality().hash(_instructions),calories,cookingTime);
+}
 
 @override
 String toString() {
-  return 'MealEntity(name: $name, photo: $photo, ingredients: $ingredients, instructions: $instructions, calories: $calories, cookingTime: $cookingTime)';
+    return 'MealEntity(name: $name, photo: $photo, ingredients: $ingredients, instructions: $instructions, calories: $calories, cookingTime: $cookingTime)';
 }
 
 
