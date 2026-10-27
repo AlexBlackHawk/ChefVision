@@ -1,11 +1,5 @@
 part of 'subscription_bloc.dart';
 
-// Per-screen operations (so an error state knows what to retry)
-
-enum PackagesScreenOperation { getPackages, purchasePackage }
-
-enum ManagingScreenOperation { getSubscriptionInfo, restorePurchases }
-
 // Subscriptions Packages Screen status: loading / loaded / error
 
 @freezed
@@ -15,10 +9,9 @@ sealed class PackagesScreenStatus with _$PackagesScreenStatus {
   const factory PackagesScreenStatus.loaded() = PackagesScreenLoaded;
 
   const factory PackagesScreenStatus.error({
-    required PackagesScreenOperation operation,
+    required SubscriptionOperation operation,
     required String message,
-    // Set when operation is purchasePackage, so retry can re-dispatch
-    // PurchasePackageRequested with the same package.
+    // Set when operation is purchasePackage, so a retry buys the same package.
     Package? package,
   }) = PackagesScreenError;
 }
@@ -36,7 +29,7 @@ sealed class ManagingScreenStatus with _$ManagingScreenStatus {
   ManagingScreenNoActiveSubscription;
 
   const factory ManagingScreenStatus.error({
-    required ManagingScreenOperation operation,
+    required SubscriptionOperation operation,
     required String message,
   }) = ManagingScreenError;
 }
@@ -50,15 +43,18 @@ sealed class SubscriptionState with _$SubscriptionState {
   const factory SubscriptionState.loading() = SubscriptionLoading;
 
   /// The very first fetch (of either screen) failed, so there's no data
-  /// at all yet. Once SubscriptionLoaded is reached, further errors are
-  /// scoped to the relevant screen's status instead of this state.
-  const factory SubscriptionState.error(String message) = SubscriptionError;
+  /// at all yet. Also remembers which operation failed, so it can be retried.
+  const factory SubscriptionState.error({
+    required SubscriptionOperation operation,
+    required String message,
+  }) = SubscriptionError;
 
   /// Data is available. Each screen tracks its own status independently,
   /// so one screen's loading/error doesn't affect the other.
   const factory SubscriptionState.loaded({
     required List<Package> packages,
-    required CustomerInfo customerInfo,
+    // Null until subscription info has been fetched, or when the user has no subscription.
+    required CustomerInfo? customerInfo,
     required PackagesScreenStatus packagesScreenStatus,
     required ManagingScreenStatus managingScreenStatus,
   }) = SubscriptionLoaded;
