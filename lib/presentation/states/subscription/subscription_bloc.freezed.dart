@@ -1264,7 +1264,7 @@ return error(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  loading,TResult Function()?  loaded,TResult Function( PackagesScreenOperation operation,  String message,  Package? package)?  error,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  loading,TResult Function()?  loaded,TResult Function( SubscriptionOperation operation,  String message,  Package? package)?  error,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case PackagesScreenLoading() when loading != null:
 return loading();case PackagesScreenLoaded() when loaded != null:
@@ -1287,7 +1287,7 @@ return error(_that.operation,_that.message,_that.package);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  loading,required TResult Function()  loaded,required TResult Function( PackagesScreenOperation operation,  String message,  Package? package)  error,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  loading,required TResult Function()  loaded,required TResult Function( SubscriptionOperation operation,  String message,  Package? package)  error,}) {final _that = this;
 switch (_that) {
 case PackagesScreenLoading():
 return loading();case PackagesScreenLoaded():
@@ -1306,7 +1306,7 @@ return error(_that.operation,_that.message,_that.package);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  loading,TResult? Function()?  loaded,TResult? Function( PackagesScreenOperation operation,  String message,  Package? package)?  error,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  loading,TResult? Function()?  loaded,TResult? Function( SubscriptionOperation operation,  String message,  Package? package)?  error,}) {final _that = this;
 switch (_that) {
 case PackagesScreenLoading() when loading != null:
 return loading();case PackagesScreenLoaded() when loaded != null:
@@ -1390,7 +1390,7 @@ class PackagesScreenError implements PackagesScreenStatus {
   const PackagesScreenError({required this.operation, required this.message, this.package});
   
 
- final  PackagesScreenOperation operation;
+ final  SubscriptionOperation operation;
  final  String message;
  final  Package? package;
 
@@ -1426,7 +1426,7 @@ abstract mixin class $PackagesScreenErrorCopyWith<$Res> implements $PackagesScre
   factory $PackagesScreenErrorCopyWith(PackagesScreenError value, $Res Function(PackagesScreenError) _then) = _$PackagesScreenErrorCopyWithImpl;
 @useResult
 $Res call({
- PackagesScreenOperation operation, String message, Package? package
+ SubscriptionOperation operation, String message, Package? package
 });
 
 
@@ -1446,7 +1446,7 @@ class _$PackagesScreenErrorCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') $Res call({Object? operation = null,Object? message = null,Object? package = freezed,}) {
   return _then(PackagesScreenError(
 operation: null == operation ? _self.operation : operation // ignore: cast_nullable_to_non_nullable
-as PackagesScreenOperation,message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as SubscriptionOperation,message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String,package: freezed == package ? _self.package : package // ignore: cast_nullable_to_non_nullable
 as Package?,
   ));
@@ -1569,7 +1569,7 @@ return error(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  loading,TResult Function()?  loaded,TResult Function()?  noActiveSubscription,TResult Function( ManagingScreenOperation operation,  String message)?  error,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  loading,TResult Function()?  loaded,TResult Function()?  noActiveSubscription,TResult Function( SubscriptionOperation operation,  String message)?  error,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case ManagingScreenLoading() when loading != null:
 return loading();case ManagingScreenLoaded() when loaded != null:
@@ -1593,7 +1593,7 @@ return error(_that.operation,_that.message);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  loading,required TResult Function()  loaded,required TResult Function()  noActiveSubscription,required TResult Function( ManagingScreenOperation operation,  String message)  error,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  loading,required TResult Function()  loaded,required TResult Function()  noActiveSubscription,required TResult Function( SubscriptionOperation operation,  String message)  error,}) {final _that = this;
 switch (_that) {
 case ManagingScreenLoading():
 return loading();case ManagingScreenLoaded():
@@ -1613,7 +1613,7 @@ return error(_that.operation,_that.message);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  loading,TResult? Function()?  loaded,TResult? Function()?  noActiveSubscription,TResult? Function( ManagingScreenOperation operation,  String message)?  error,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  loading,TResult? Function()?  loaded,TResult? Function()?  noActiveSubscription,TResult? Function( SubscriptionOperation operation,  String message)?  error,}) {final _that = this;
 switch (_that) {
 case ManagingScreenLoading() when loading != null:
 return loading();case ManagingScreenLoaded() when loaded != null:
@@ -1730,7 +1730,7 @@ class ManagingScreenError implements ManagingScreenStatus {
   const ManagingScreenError({required this.operation, required this.message});
   
 
- final  ManagingScreenOperation operation;
+ final  SubscriptionOperation operation;
  final  String message;
 
 /// Create a copy of ManagingScreenStatus
@@ -1765,7 +1765,7 @@ abstract mixin class $ManagingScreenErrorCopyWith<$Res> implements $ManagingScre
   factory $ManagingScreenErrorCopyWith(ManagingScreenError value, $Res Function(ManagingScreenError) _then) = _$ManagingScreenErrorCopyWithImpl;
 @useResult
 $Res call({
- ManagingScreenOperation operation, String message
+ SubscriptionOperation operation, String message
 });
 
 
@@ -1785,7 +1785,7 @@ class _$ManagingScreenErrorCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') $Res call({Object? operation = null,Object? message = null,}) {
   return _then(ManagingScreenError(
 operation: null == operation ? _self.operation : operation // ignore: cast_nullable_to_non_nullable
-as ManagingScreenOperation,message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as SubscriptionOperation,message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
@@ -1904,11 +1904,11 @@ return loaded(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  loading,TResult Function( String message)?  error,TResult Function( List<Package> packages,  CustomerInfo customerInfo,  PackagesScreenStatus packagesScreenStatus,  ManagingScreenStatus managingScreenStatus)?  loaded,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  loading,TResult Function( SubscriptionOperation operation,  String message)?  error,TResult Function( List<Package> packages,  CustomerInfo? customerInfo,  PackagesScreenStatus packagesScreenStatus,  ManagingScreenStatus managingScreenStatus)?  loaded,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case SubscriptionLoading() when loading != null:
 return loading();case SubscriptionError() when error != null:
-return error(_that.message);case SubscriptionLoaded() when loaded != null:
+return error(_that.operation,_that.message);case SubscriptionLoaded() when loaded != null:
 return loaded(_that.packages,_that.customerInfo,_that.packagesScreenStatus,_that.managingScreenStatus);case _:
   return orElse();
 
@@ -1927,11 +1927,11 @@ return loaded(_that.packages,_that.customerInfo,_that.packagesScreenStatus,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  loading,required TResult Function( String message)  error,required TResult Function( List<Package> packages,  CustomerInfo customerInfo,  PackagesScreenStatus packagesScreenStatus,  ManagingScreenStatus managingScreenStatus)  loaded,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  loading,required TResult Function( SubscriptionOperation operation,  String message)  error,required TResult Function( List<Package> packages,  CustomerInfo? customerInfo,  PackagesScreenStatus packagesScreenStatus,  ManagingScreenStatus managingScreenStatus)  loaded,}) {final _that = this;
 switch (_that) {
 case SubscriptionLoading():
 return loading();case SubscriptionError():
-return error(_that.message);case SubscriptionLoaded():
+return error(_that.operation,_that.message);case SubscriptionLoaded():
 return loaded(_that.packages,_that.customerInfo,_that.packagesScreenStatus,_that.managingScreenStatus);}
 }
 /// A variant of `when` that fallback to returning `null`
@@ -1946,11 +1946,11 @@ return loaded(_that.packages,_that.customerInfo,_that.packagesScreenStatus,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  loading,TResult? Function( String message)?  error,TResult? Function( List<Package> packages,  CustomerInfo customerInfo,  PackagesScreenStatus packagesScreenStatus,  ManagingScreenStatus managingScreenStatus)?  loaded,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  loading,TResult? Function( SubscriptionOperation operation,  String message)?  error,TResult? Function( List<Package> packages,  CustomerInfo? customerInfo,  PackagesScreenStatus packagesScreenStatus,  ManagingScreenStatus managingScreenStatus)?  loaded,}) {final _that = this;
 switch (_that) {
 case SubscriptionLoading() when loading != null:
 return loading();case SubscriptionError() when error != null:
-return error(_that.message);case SubscriptionLoaded() when loaded != null:
+return error(_that.operation,_that.message);case SubscriptionLoaded() when loaded != null:
 return loaded(_that.packages,_that.customerInfo,_that.packagesScreenStatus,_that.managingScreenStatus);case _:
   return null;
 
@@ -1995,9 +1995,10 @@ String toString() {
 
 
 class SubscriptionError implements SubscriptionState {
-  const SubscriptionError(this.message);
+  const SubscriptionError({required this.operation, required this.message});
   
 
+ final  SubscriptionOperation operation;
  final  String message;
 
 /// Create a copy of SubscriptionState
@@ -2010,18 +2011,18 @@ $SubscriptionErrorCopyWith<SubscriptionError> get copyWith => _$SubscriptionErro
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is SubscriptionError&&(identical(other.message, message) || other.message == message));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is SubscriptionError&&(identical(other.operation, operation) || other.operation == operation)&&(identical(other.message, message) || other.message == message));
 }
 
 
 @override
 int get hashCode {
-    return Object.hash(runtimeType,message);
+    return Object.hash(runtimeType,operation,message);
 }
 
 @override
 String toString() {
-    return 'SubscriptionState.error(message: $message)';
+    return 'SubscriptionState.error(operation: $operation, message: $message)';
 }
 
 
@@ -2032,7 +2033,7 @@ abstract mixin class $SubscriptionErrorCopyWith<$Res> implements $SubscriptionSt
   factory $SubscriptionErrorCopyWith(SubscriptionError value, $Res Function(SubscriptionError) _then) = _$SubscriptionErrorCopyWithImpl;
 @useResult
 $Res call({
- String message
+ SubscriptionOperation operation, String message
 });
 
 
@@ -2049,9 +2050,10 @@ class _$SubscriptionErrorCopyWithImpl<$Res>
 
 /// Create a copy of SubscriptionState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? message = null,}) {
+@pragma('vm:prefer-inline') $Res call({Object? operation = null,Object? message = null,}) {
   return _then(SubscriptionError(
-null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+operation: null == operation ? _self.operation : operation // ignore: cast_nullable_to_non_nullable
+as SubscriptionOperation,message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
@@ -2073,7 +2075,7 @@ class SubscriptionLoaded implements SubscriptionState {
   return EqualUnmodifiableListView(_packages);
 }
 
- final  CustomerInfo customerInfo;
+ final  CustomerInfo? customerInfo;
  final  PackagesScreenStatus packagesScreenStatus;
  final  ManagingScreenStatus managingScreenStatus;
 
@@ -2109,7 +2111,7 @@ abstract mixin class $SubscriptionLoadedCopyWith<$Res> implements $SubscriptionS
   factory $SubscriptionLoadedCopyWith(SubscriptionLoaded value, $Res Function(SubscriptionLoaded) _then) = _$SubscriptionLoadedCopyWithImpl;
 @useResult
 $Res call({
- List<Package> packages, CustomerInfo customerInfo, PackagesScreenStatus packagesScreenStatus, ManagingScreenStatus managingScreenStatus
+ List<Package> packages, CustomerInfo? customerInfo, PackagesScreenStatus packagesScreenStatus, ManagingScreenStatus managingScreenStatus
 });
 
 
@@ -2126,11 +2128,11 @@ class _$SubscriptionLoadedCopyWithImpl<$Res>
 
 /// Create a copy of SubscriptionState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? packages = null,Object? customerInfo = null,Object? packagesScreenStatus = null,Object? managingScreenStatus = null,}) {
+@pragma('vm:prefer-inline') $Res call({Object? packages = null,Object? customerInfo = freezed,Object? packagesScreenStatus = null,Object? managingScreenStatus = null,}) {
   return _then(SubscriptionLoaded(
 packages: null == packages ? _self._packages : packages // ignore: cast_nullable_to_non_nullable
-as List<Package>,customerInfo: null == customerInfo ? _self.customerInfo : customerInfo // ignore: cast_nullable_to_non_nullable
-as CustomerInfo,packagesScreenStatus: null == packagesScreenStatus ? _self.packagesScreenStatus : packagesScreenStatus // ignore: cast_nullable_to_non_nullable
+as List<Package>,customerInfo: freezed == customerInfo ? _self.customerInfo : customerInfo // ignore: cast_nullable_to_non_nullable
+as CustomerInfo?,packagesScreenStatus: null == packagesScreenStatus ? _self.packagesScreenStatus : packagesScreenStatus // ignore: cast_nullable_to_non_nullable
 as PackagesScreenStatus,managingScreenStatus: null == managingScreenStatus ? _self.managingScreenStatus : managingScreenStatus // ignore: cast_nullable_to_non_nullable
 as ManagingScreenStatus,
   ));
