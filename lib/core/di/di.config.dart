@@ -70,6 +70,8 @@ import 'package:chefvision/domain/usecases/remote_config_use_cases/get_ai_model_
     as _i770;
 import 'package:chefvision/domain/usecases/remote_config_use_cases/get_ml_model_name.dart'
     as _i804;
+import 'package:chefvision/domain/usecases/subscription_use_cases/convert_to_purchase_params_use_case.dart'
+    as _i929;
 import 'package:chefvision/domain/usecases/subscription_use_cases/get_all_packages_use_case.dart'
     as _i358;
 import 'package:chefvision/domain/usecases/subscription_use_cases/get_current_app_user_id_use_case.dart'
@@ -86,6 +88,8 @@ import 'package:chefvision/domain/usecases/subscription_use_cases/purchase_use_c
     as _i300;
 import 'package:chefvision/domain/usecases/subscription_use_cases/restore_purchases_use_case.dart'
     as _i502;
+import 'package:chefvision/presentation/states/subscription/subscription_bloc.dart'
+    as _i741;
 import 'package:firebase_ai/firebase_ai.dart' as _i187;
 import 'package:firebase_ml_model_downloader/firebase_ml_model_downloader.dart'
     as _i520;
@@ -137,6 +141,11 @@ _i174.GetIt $configureDependencies(
   gh.lazySingleton<_i943.AILogicRepository>(
     () => _i1073.AILogicRepositoryImpl(gh<_i310.AILogicFirebase>()),
   );
+  gh.factory<_i929.ConvertToPurchaseParamsUseCase>(
+    () => _i929.ConvertToPurchaseParamsUseCase(
+      gh<_i646.SubscriptionRepository>(),
+    ),
+  );
   gh.factory<_i358.GetAllPackagesUseCase>(
     () => _i358.GetAllPackagesUseCase(gh<_i646.SubscriptionRepository>()),
   );
@@ -174,6 +183,21 @@ _i174.GetIt $configureDependencies(
   );
   gh.factory<_i804.GetMLModelNameUseCase>(
     () => _i804.GetMLModelNameUseCase(gh<_i410.RemoteConfigRepository>()),
+  );
+  gh.lazySingleton<_i741.SubscriptionBloc>(
+    () => _i741.SubscriptionBloc(
+      getAllPackagesUseCase: gh<_i358.GetAllPackagesUseCase>(),
+      getCurrentAppUserIdUseCase: gh<_i36.GetCurrentAppUserIdUseCase>(),
+      getCurrentCustomerInfoUseCase: gh<_i451.GetCurrentCustomerInfoUseCase>(),
+      getCurrentSubscriptionStatusUseCase:
+          gh<_i992.GetCurrentSubscriptionStatusUseCase>(),
+      logInUseCase: gh<_i725.LogInUseCase>(),
+      logOutUseCase: gh<_i210.LogOutUseCase>(),
+      purchaseUseCase: gh<_i300.PurchaseUseCase>(),
+      restorePurchasesUseCase: gh<_i502.RestorePurchasesUseCase>(),
+      convertToPurchaseParamsUseCase:
+          gh<_i929.ConvertToPurchaseParamsUseCase>(),
+    ),
   );
   gh.factory<_i328.CloseInterpreterUseCase>(
     () =>
