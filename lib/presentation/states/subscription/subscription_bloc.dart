@@ -47,6 +47,7 @@ class SubscriptionBloc extends Bloc<SubscriptionEvent, SubscriptionState> {
     on<RestorePurchasesRequested>(_onRestorePurchasesRequested);
     on<PackagesScreenRepeatOperation>(_onPackagesScreenRepeatOperation);
     on<ManagingScreenRepeatOperation>(_onManagingScreenRepeatOperation);
+    on<SelectedPackageChanged>(_onSelectedPackageChanged);
   }
 
   final GetAllPackagesUseCase _getAllPackagesUseCase;
@@ -63,6 +64,17 @@ class SubscriptionBloc extends Bloc<SubscriptionEvent, SubscriptionState> {
       state is SubscriptionLoaded ? state as SubscriptionLoaded : null;
 
   // Subscriptions Packages Screen
+
+  void _onSelectedPackageChanged(SelectedPackageChanged event, Emitter<SubscriptionState> emit) {
+    final current = _loaded;
+    // Ignore selection before packages are loaded, or mid-operation
+    // (e.g. while a purchase is in progress).
+    if (current == null ||
+        current.packagesScreenStatus is PackagesScreenLoading) {
+      return;
+    }
+    emit(current.copyWith(selectedPackage: event.package));
+  }
 
   FutureOr<void> _onGetSubscriptionPackages(GetSubscriptionPackages event, Emitter<SubscriptionState> emit) async {
     final base = _loaded;
@@ -84,8 +96,12 @@ class SubscriptionBloc extends Bloc<SubscriptionEvent, SubscriptionState> {
       }
 
       final current = _loaded;
+      final selected = current?.selectedPackage;
       emit(SubscriptionState.loaded(
         packages: packages,
+        // Keep the selection only if the package is still in the new list.
+        selectedPackage:
+        selected != null && packages.contains(selected) ? selected : null,
         customerInfo: current?.customerInfo,
         packagesScreenStatus: const PackagesScreenStatus.loaded(),
         managingScreenStatus: current?.managingScreenStatus ??
@@ -111,12 +127,17 @@ class SubscriptionBloc extends Bloc<SubscriptionEvent, SubscriptionState> {
 
   FutureOr<void> _onPurchasePackageRequested(PurchasePackageRequested event, Emitter<SubscriptionState> emit) async {
     final base = _loaded;
-    if (base == null) return; // packages must be loaded before purchasing
+    final package = base?.selectedPackage;
+
+    // Nothing to buy until packages are loaded and one is selected.
+    if (base == null || package == null) return;
+    // A purchase is already in progress: ignore repeated taps.
+    if (base.packagesScreenStatus is PackagesScreenLoading) return;
 
     emit(base.copyWith(
         packagesScreenStatus: const PackagesScreenStatus.loading()));
 
-    final purchaseParams = _convertToPurchaseParamsUseCase(package: event.package);
+    final purchaseParams = _convertToPurchaseParamsUseCase(package: package);
 
     try {
       final customerInfo = await _purchaseUseCase(purchaseParams: purchaseParams);
@@ -131,7 +152,6 @@ class SubscriptionBloc extends Bloc<SubscriptionEvent, SubscriptionState> {
         packagesScreenStatus: PackagesScreenStatus.error(
           operation: SubscriptionOperation.purchasePackage,
           message: e.toString(),
-          package: event.package,
         ),
       ));
     }
@@ -187,6 +207,7 @@ class SubscriptionBloc extends Bloc<SubscriptionEvent, SubscriptionState> {
     final hasActive = await _getCurrentSubscriptionStatusUseCase();
     emit(SubscriptionState.loaded(
       packages: current?.packages ?? const [],
+      selectedPackage: current?.selectedPackage,
       customerInfo: customerInfo,
       packagesScreenStatus: current?.packagesScreenStatus ??
           const PackagesScreenStatus.loading(),
@@ -271,7 +292,7 @@ class SubscriptionBloc extends Bloc<SubscriptionEvent, SubscriptionState> {
   void _repeat(SubscriptionOperation operation, Package? package, Emitter<SubscriptionState> emit) {
     return switch (operation) {
       SubscriptionOperation.getPackages => add(GetSubscriptionPackages()),
-      SubscriptionOperation.purchasePackage => package != null ? add(PurchasePackageRequested(package: package)) : Future.value(),
+      SubscriptionOperation.purchasePackage => add(PurchasePackageRequested()),
       SubscriptionOperation.getSubscriptionInformation => add(GetSubscriptionInformation()),
       SubscriptionOperation.restorePurchases => add(RestorePurchasesRequested()),
     };

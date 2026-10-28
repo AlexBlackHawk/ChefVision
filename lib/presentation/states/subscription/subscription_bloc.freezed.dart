@@ -13,6 +13,202 @@ part of 'subscription_bloc.dart';
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
+mixin _$SelectedPackageChanged {
+
+ Package get package;
+
+
+
+@override
+bool operator ==(Object other) {
+  final _this = this as SelectedPackageChanged;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SelectedPackageChanged&&(identical(other.package, _this.package) || other.package == _this.package));
+}
+
+
+@override
+int get hashCode {
+  final _this = this as SelectedPackageChanged;
+  return Object.hash(runtimeType,_this.package);
+}
+
+@override
+String toString() {
+  final _this = this as SelectedPackageChanged;
+  return 'SelectedPackageChanged(package: ${_this.package})';
+}
+
+
+}
+
+
+
+
+/// Adds pattern-matching-related methods to [SelectedPackageChanged].
+extension SelectedPackageChangedPatterns on SelectedPackageChanged {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _SelectedPackageChanged value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _SelectedPackageChanged() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _SelectedPackageChanged value)  $default,){
+final _that = this;
+switch (_that) {
+case _SelectedPackageChanged():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _SelectedPackageChanged value)?  $default,){
+final _that = this;
+switch (_that) {
+case _SelectedPackageChanged() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Package package)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _SelectedPackageChanged() when $default != null:
+return $default(_that.package);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Package package)  $default,) {final _that = this;
+switch (_that) {
+case _SelectedPackageChanged():
+return $default(_that.package);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Package package)?  $default,) {final _that = this;
+switch (_that) {
+case _SelectedPackageChanged() when $default != null:
+return $default(_that.package);case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+
+
+class _SelectedPackageChanged implements SelectedPackageChanged {
+  const _SelectedPackageChanged({required this.package});
+  
+
+@override final  Package package;
+
+
+
+
+@override
+bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _SelectedPackageChanged&&(identical(other.package, package) || other.package == package));
+}
+
+
+@override
+int get hashCode {
+    return Object.hash(runtimeType,package);
+}
+
+@override
+String toString() {
+    return 'SelectedPackageChanged(package: $package)';
+}
+
+
+}
+
+
+
+
+/// @nodoc
 mixin _$GetSubscriptionPackages {
 
 
@@ -204,27 +400,22 @@ String toString() {
 /// @nodoc
 mixin _$PurchasePackageRequested {
 
- Package get package;
+
 
 
 
 @override
 bool operator ==(Object other) {
-  final _this = this as PurchasePackageRequested;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is PurchasePackageRequested&&(identical(other.package, _this.package) || other.package == _this.package));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is PurchasePackageRequested);
 }
 
 
 @override
-int get hashCode {
-  final _this = this as PurchasePackageRequested;
-  return Object.hash(runtimeType,_this.package);
-}
+int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  final _this = this as PurchasePackageRequested;
-  return 'PurchasePackageRequested(package: ${_this.package})';
+    return 'PurchasePackageRequested()';
 }
 
 
@@ -311,10 +502,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Package package)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function()?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _PurchasePackageRequested() when $default != null:
-return $default(_that.package);case _:
+return $default();case _:
   return orElse();
 
 }
@@ -332,10 +523,10 @@ return $default(_that.package);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Package package)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function()  $default,) {final _that = this;
 switch (_that) {
 case _PurchasePackageRequested():
-return $default(_that.package);case _:
+return $default();case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -352,10 +543,10 @@ return $default(_that.package);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Package package)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function()?  $default,) {final _that = this;
 switch (_that) {
 case _PurchasePackageRequested() when $default != null:
-return $default(_that.package);case _:
+return $default();case _:
   return null;
 
 }
@@ -367,28 +558,26 @@ return $default(_that.package);case _:
 
 
 class _PurchasePackageRequested implements PurchasePackageRequested {
-  const _PurchasePackageRequested({required this.package});
+  const _PurchasePackageRequested();
   
 
-@override final  Package package;
+
 
 
 
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _PurchasePackageRequested&&(identical(other.package, package) || other.package == package));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _PurchasePackageRequested);
 }
 
 
 @override
-int get hashCode {
-    return Object.hash(runtimeType,package);
-}
+int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-    return 'PurchasePackageRequested(package: $package)';
+    return 'PurchasePackageRequested()';
 }
 
 
@@ -1904,12 +2093,12 @@ return loaded(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  loading,TResult Function( SubscriptionOperation operation,  String message)?  error,TResult Function( List<Package> packages,  CustomerInfo? customerInfo,  PackagesScreenStatus packagesScreenStatus,  ManagingScreenStatus managingScreenStatus)?  loaded,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  loading,TResult Function( SubscriptionOperation operation,  String message)?  error,TResult Function( List<Package> packages,  Package? selectedPackage,  CustomerInfo? customerInfo,  PackagesScreenStatus packagesScreenStatus,  ManagingScreenStatus managingScreenStatus)?  loaded,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case SubscriptionLoading() when loading != null:
 return loading();case SubscriptionError() when error != null:
 return error(_that.operation,_that.message);case SubscriptionLoaded() when loaded != null:
-return loaded(_that.packages,_that.customerInfo,_that.packagesScreenStatus,_that.managingScreenStatus);case _:
+return loaded(_that.packages,_that.selectedPackage,_that.customerInfo,_that.packagesScreenStatus,_that.managingScreenStatus);case _:
   return orElse();
 
 }
@@ -1927,12 +2116,12 @@ return loaded(_that.packages,_that.customerInfo,_that.packagesScreenStatus,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  loading,required TResult Function( SubscriptionOperation operation,  String message)  error,required TResult Function( List<Package> packages,  CustomerInfo? customerInfo,  PackagesScreenStatus packagesScreenStatus,  ManagingScreenStatus managingScreenStatus)  loaded,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  loading,required TResult Function( SubscriptionOperation operation,  String message)  error,required TResult Function( List<Package> packages,  Package? selectedPackage,  CustomerInfo? customerInfo,  PackagesScreenStatus packagesScreenStatus,  ManagingScreenStatus managingScreenStatus)  loaded,}) {final _that = this;
 switch (_that) {
 case SubscriptionLoading():
 return loading();case SubscriptionError():
 return error(_that.operation,_that.message);case SubscriptionLoaded():
-return loaded(_that.packages,_that.customerInfo,_that.packagesScreenStatus,_that.managingScreenStatus);}
+return loaded(_that.packages,_that.selectedPackage,_that.customerInfo,_that.packagesScreenStatus,_that.managingScreenStatus);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -1946,12 +2135,12 @@ return loaded(_that.packages,_that.customerInfo,_that.packagesScreenStatus,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  loading,TResult? Function( SubscriptionOperation operation,  String message)?  error,TResult? Function( List<Package> packages,  CustomerInfo? customerInfo,  PackagesScreenStatus packagesScreenStatus,  ManagingScreenStatus managingScreenStatus)?  loaded,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  loading,TResult? Function( SubscriptionOperation operation,  String message)?  error,TResult? Function( List<Package> packages,  Package? selectedPackage,  CustomerInfo? customerInfo,  PackagesScreenStatus packagesScreenStatus,  ManagingScreenStatus managingScreenStatus)?  loaded,}) {final _that = this;
 switch (_that) {
 case SubscriptionLoading() when loading != null:
 return loading();case SubscriptionError() when error != null:
 return error(_that.operation,_that.message);case SubscriptionLoaded() when loaded != null:
-return loaded(_that.packages,_that.customerInfo,_that.packagesScreenStatus,_that.managingScreenStatus);case _:
+return loaded(_that.packages,_that.selectedPackage,_that.customerInfo,_that.packagesScreenStatus,_that.managingScreenStatus);case _:
   return null;
 
 }
@@ -2065,7 +2254,7 @@ as String,
 
 
 class SubscriptionLoaded implements SubscriptionState {
-  const SubscriptionLoaded({required  List<Package> packages, required this.customerInfo, required this.packagesScreenStatus, required this.managingScreenStatus}): _packages = packages;
+  const SubscriptionLoaded({required  List<Package> packages, required this.selectedPackage, required this.customerInfo, required this.packagesScreenStatus, required this.managingScreenStatus}): _packages = packages;
   
 
  final  List<Package> _packages;
@@ -2075,6 +2264,7 @@ class SubscriptionLoaded implements SubscriptionState {
   return EqualUnmodifiableListView(_packages);
 }
 
+ final  Package? selectedPackage;
  final  CustomerInfo? customerInfo;
  final  PackagesScreenStatus packagesScreenStatus;
  final  ManagingScreenStatus managingScreenStatus;
@@ -2089,18 +2279,18 @@ $SubscriptionLoadedCopyWith<SubscriptionLoaded> get copyWith => _$SubscriptionLo
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is SubscriptionLoaded&&const DeepCollectionEquality().equals(other.packages, _packages)&&(identical(other.customerInfo, customerInfo) || other.customerInfo == customerInfo)&&(identical(other.packagesScreenStatus, packagesScreenStatus) || other.packagesScreenStatus == packagesScreenStatus)&&(identical(other.managingScreenStatus, managingScreenStatus) || other.managingScreenStatus == managingScreenStatus));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is SubscriptionLoaded&&const DeepCollectionEquality().equals(other.packages, _packages)&&(identical(other.selectedPackage, selectedPackage) || other.selectedPackage == selectedPackage)&&(identical(other.customerInfo, customerInfo) || other.customerInfo == customerInfo)&&(identical(other.packagesScreenStatus, packagesScreenStatus) || other.packagesScreenStatus == packagesScreenStatus)&&(identical(other.managingScreenStatus, managingScreenStatus) || other.managingScreenStatus == managingScreenStatus));
 }
 
 
 @override
 int get hashCode {
-    return Object.hash(runtimeType,const DeepCollectionEquality().hash(_packages),customerInfo,packagesScreenStatus,managingScreenStatus);
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(_packages),selectedPackage,customerInfo,packagesScreenStatus,managingScreenStatus);
 }
 
 @override
 String toString() {
-    return 'SubscriptionState.loaded(packages: $packages, customerInfo: $customerInfo, packagesScreenStatus: $packagesScreenStatus, managingScreenStatus: $managingScreenStatus)';
+    return 'SubscriptionState.loaded(packages: $packages, selectedPackage: $selectedPackage, customerInfo: $customerInfo, packagesScreenStatus: $packagesScreenStatus, managingScreenStatus: $managingScreenStatus)';
 }
 
 
@@ -2111,7 +2301,7 @@ abstract mixin class $SubscriptionLoadedCopyWith<$Res> implements $SubscriptionS
   factory $SubscriptionLoadedCopyWith(SubscriptionLoaded value, $Res Function(SubscriptionLoaded) _then) = _$SubscriptionLoadedCopyWithImpl;
 @useResult
 $Res call({
- List<Package> packages, CustomerInfo? customerInfo, PackagesScreenStatus packagesScreenStatus, ManagingScreenStatus managingScreenStatus
+ List<Package> packages, Package? selectedPackage, CustomerInfo? customerInfo, PackagesScreenStatus packagesScreenStatus, ManagingScreenStatus managingScreenStatus
 });
 
 
@@ -2128,10 +2318,11 @@ class _$SubscriptionLoadedCopyWithImpl<$Res>
 
 /// Create a copy of SubscriptionState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? packages = null,Object? customerInfo = freezed,Object? packagesScreenStatus = null,Object? managingScreenStatus = null,}) {
+@pragma('vm:prefer-inline') $Res call({Object? packages = null,Object? selectedPackage = freezed,Object? customerInfo = freezed,Object? packagesScreenStatus = null,Object? managingScreenStatus = null,}) {
   return _then(SubscriptionLoaded(
 packages: null == packages ? _self._packages : packages // ignore: cast_nullable_to_non_nullable
-as List<Package>,customerInfo: freezed == customerInfo ? _self.customerInfo : customerInfo // ignore: cast_nullable_to_non_nullable
+as List<Package>,selectedPackage: freezed == selectedPackage ? _self.selectedPackage : selectedPackage // ignore: cast_nullable_to_non_nullable
+as Package?,customerInfo: freezed == customerInfo ? _self.customerInfo : customerInfo // ignore: cast_nullable_to_non_nullable
 as CustomerInfo?,packagesScreenStatus: null == packagesScreenStatus ? _self.packagesScreenStatus : packagesScreenStatus // ignore: cast_nullable_to_non_nullable
 as PackagesScreenStatus,managingScreenStatus: null == managingScreenStatus ? _self.managingScreenStatus : managingScreenStatus // ignore: cast_nullable_to_non_nullable
 as ManagingScreenStatus,
