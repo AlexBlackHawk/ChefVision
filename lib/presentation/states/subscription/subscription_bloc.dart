@@ -265,31 +265,26 @@ class SubscriptionBloc extends Bloc<SubscriptionEvent, SubscriptionState> {
 
   FutureOr<void> _onPackagesScreenRepeatOperation(PackagesScreenRepeatOperation event, Emitter<SubscriptionState> emit) async {
     return switch (state) {
-    // Nothing loaded yet: the top-level error holds the failed operation.
-      SubscriptionError(:final operation) => _repeat(operation, null, emit),
+      // Nothing loaded yet: the top-level error holds the failed operation.
+      SubscriptionError(:final operation) => _repeat(operation, emit),
       SubscriptionLoaded(
-      packagesScreenStatus: PackagesScreenError(
-          :final operation,
-          :final package,
-      ),
-      ) =>
-          _repeat(operation, package, emit),
+        packagesScreenStatus: PackagesScreenError(:final operation),
+      ) => _repeat(operation, emit),
       _ => Future.value(), // not in an error state: nothing to retry
     };
   }
 
   FutureOr<void> _onManagingScreenRepeatOperation(ManagingScreenRepeatOperation event, Emitter<SubscriptionState> emit) async {
     return switch (state) {
-      SubscriptionError(:final operation) => _repeat(operation, null, emit),
+      SubscriptionError(:final operation) => _repeat(operation, emit),
       SubscriptionLoaded(
-      managingScreenStatus: ManagingScreenError(:final operation),
-      ) =>
-          _repeat(operation, null, emit),
+        managingScreenStatus: ManagingScreenError(:final operation),
+      ) => _repeat(operation, emit),
       _ => Future.value(),
     };
   }
 
-  void _repeat(SubscriptionOperation operation, Package? package, Emitter<SubscriptionState> emit) {
+  void _repeat(SubscriptionOperation operation, Emitter<SubscriptionState> emit) {
     return switch (operation) {
       SubscriptionOperation.getPackages => add(GetSubscriptionPackages()),
       SubscriptionOperation.purchasePackage => add(PurchasePackageRequested()),
