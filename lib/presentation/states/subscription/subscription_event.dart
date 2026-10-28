@@ -5,15 +5,20 @@ abstract class SubscriptionEvent {
 }
 
 @Freezed(copyWith: false)
+abstract class SelectedPackageChanged with _$SelectedPackageChanged implements SubscriptionEvent {
+  const factory SelectedPackageChanged({
+    required Package package,
+  }) = _SelectedPackageChanged;
+}
+
+@Freezed(copyWith: false)
 abstract class GetSubscriptionPackages with _$GetSubscriptionPackages implements SubscriptionEvent {
   const factory GetSubscriptionPackages() = _GetSubscriptionPackages;
 }
 
 @Freezed(copyWith: false)
 abstract class PurchasePackageRequested with _$PurchasePackageRequested implements SubscriptionEvent {
-  const factory PurchasePackageRequested({
-    required Package package,
-  }) = _PurchasePackageRequested;
+  const factory PurchasePackageRequested() = _PurchasePackageRequested;
 }
 
 @Freezed(copyWith: false)

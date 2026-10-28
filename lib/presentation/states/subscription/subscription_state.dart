@@ -53,6 +53,9 @@ sealed class SubscriptionState with _$SubscriptionState {
   /// so one screen's loading/error doesn't affect the other.
   const factory SubscriptionState.loaded({
     required List<Package> packages,
+    // The package the user picked in the list; used when purchasing.
+    // null until the user selects one.
+    required Package? selectedPackage,
     // Null until subscription info has been fetched, or when the user has no subscription.
     required CustomerInfo? customerInfo,
     required PackagesScreenStatus packagesScreenStatus,
